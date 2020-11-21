@@ -1,13 +1,20 @@
-import React from "react"
+import React, { Component } from "react"
 
-const PizzaForm = () => {
+class PizzaForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      pizza: props
+    }
+  }
+
+  render() {
   return(
       <div className="form-row">
         <div className="col-5">
             <input type="text" className="form-control" placeholder="Pizza Topping" value={
-                //Pizza Topping Should Go Here
-                null
-              }/>
+              this.props.topping
+            }/>
         </div>
         <div className="col">
           <select value={null} className="form-control">
@@ -34,8 +41,8 @@ const PizzaForm = () => {
           <button type="submit" className="btn btn-success" onClick={console.log}>Submit</button>
         </div>
       </div>
-
   )
+}
 }
 
 export default PizzaForm
